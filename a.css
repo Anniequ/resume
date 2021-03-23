@@ -1,30 +1,104 @@
 body{
-background:black;
+background:#efefef;
+	margin: 0;
+}
+a{
+	color:inherit;
+	text-decoration:none;
 }
 .clearfix::after{
 	content:'';
 	display:block;
 	clear:both;
 }
-.top-nav-bar>nav>ul{
+.top-nav-bar{
+	padding: 20px 16px 20px 16px;
+	position: fixed; /*脱离文档流，不在影响父元素的行高*/
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.top-nav-bar-inner{
+	padding: 0 16px;
+}
+.top-nav-bar nav{
+	padding-bottom: 3px;
+	padding-top: 2px;
+}
+.top-nav-bar nav>ul{
 	list-style:none; margin:0;padding:0;
 }
-.top-nav-bar>nav>ul>li{
+.top-nav-bar nav>ul>li{
 	float:left;
 	
 	margin-left:17px;
 	margin-right:17px;
 }
-.top-nav-bar>nav>ul>li>a{
-	front-size:12px;
+.top-nav-bar nav>ul>li>a{
+	font-size:12px;
 	color: #B7B7B7;
-	text-decoration:none;
 	font-weight:bold;
+	border-top:3px solid transparent;
 	border-bottom:3px solid transparent;
 	padding-bottom:4px;
 	padding-top:4px;
 	display:block;
 }
-.top-nav-bar>nav>ul>li>a:hover{
+.top-nav-bar nav>ul>li>a:hover{
 	border-bottom:3px solid #e06567;
+}
+.top-nav-bar .logo{
+	font-size:24px;
+	font-family:"Arial Black";
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+.top-nav-bar .logo .rs{
+	margin-right:4px;
+	color: #E6686A;
+	
+}
+.top-nav-bar .logo .card{
+	color: #9A9DA2;
+}
+.banner{
+	height: 515px;
+	background-image: url(./img/rs-cover.jpg);
+	background-position: center center;
+	background-size: cover;  /*背景图大小自适应*/
+}
+.banner .mask{
+	height: 515px;
+	background-color: rgba(0,0,0,0.8);
+}
+.user-card{
+	border: 2px solid red;
+	max-width: 940px; /*z最大宽度可以自适应，width不可以*/
+	margin-left: auto; /*让一个div水平居中*/
+	margin-right: auto;
+	background-color: #fff;
+}
+.user-card .welcome{
+	background: #E6686A;
+	color: white;
+	display: inline-block;
+	/*width: 70px;
+	height: 29px;
+	line-height: 29px;
+	text-align: center; 
+	规定宽度,加字就会出问题，所以从内往外，在现有基础上加padding*/
+	padding:4px 16px;
+	line-height: 22px; /*确定一下别的兼容性*/
+	position:relative;
+}
+.user-card .welcome .triangle{
+	display: block;
+	border:10px solid transparent;
+	width:0px;
+	height:0px;
+	border-left-color:#E6686A;
+	border-top-width:0px;
+	position:absolute; /*脱离文档流第二次*/
+	left:4px;
+	top:100%;
 }
