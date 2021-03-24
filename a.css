@@ -6,6 +6,21 @@ a{
 	color:inherit;
 	text-decoration:none;
 }
+* {
+	margin:0px;
+	padding: 0px;
+}
+hr{
+	height: 0px;
+	border: none;
+	border-top:1px solid #DEDEDE;
+}
+ul,ol{
+	list-style:none;
+}
+h1,h2,h3,h4,h5,h6,h7{
+	font-weight: normal;
+}
 .clearfix::after{
 	content:'';
 	display:block;
@@ -19,7 +34,7 @@ a{
 	width: 100%;
 }
 .top-nav-bar-inner{
-	padding: 0 16px;
+	padding: 0 192px;
 }
 .top-nav-bar nav{
 	padding-bottom: 3px;
@@ -54,7 +69,7 @@ a{
 	padding-bottom: 4px;
 }
 .top-nav-bar .logo .rs{
-	margin-right:4px;
+	margin-right:2px;
 	color: #E6686A;
 	
 }
@@ -69,14 +84,15 @@ a{
 }
 .banner .mask{
 	height: 515px;
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(44,51,64,0.8);
 }
 .user-card{
-	border: 2px solid red;
-	max-width: 940px; /*z最大宽度可以自适应，width不可以*/
+	/*border: 2px solid red;*/
+	max-width: 930px; /*z最大宽度可以自适应，width不可以*/
 	margin-left: auto; /*让一个div水平居中*/
 	margin-right: auto;
 	background-color: #fff;
+	box-shadow: 3px 7px 19px -4px rgba(0,0,0,0.45);
 }
 .user-card .welcome{
 	background: #E6686A;
@@ -90,15 +106,195 @@ a{
 	padding:4px 16px;
 	line-height: 22px; /*确定一下别的兼容性*/
 	position:relative;
+	margin-bottom: 26px;
 }
 .user-card .welcome .triangle{
 	display: block;
 	border:10px solid transparent;
 	width:0px;
-	height:0px;
 	border-left-color:#E6686A;
 	border-top-width:0px;
 	position:absolute; /*脱离文档流第二次*/
 	left:4px;
 	top:100%;
+}
+.user-card .picture{
+	float: left;
+	margin-right: 64px;
+}
+.user-card .text{
+	float: left;
+	width: 460px;
+}
+.user-card .text hr{
+	margin:22px 0px;
+}
+.user-card .picture-text{
+	padding: 50px;
+}
+.user-card dl dt,
+.user-card dl dd{
+	float: left;
+	padding: 5px 0px;
+	
+}
+.user-card dl dt{
+	width:30%;
+	font-weight: bold;
+}
+.user-card dl dd{
+	width: 70%;
+	color: #9da0a7;
+}
+.user-card  > footer.media{
+	background: #E6686A;
+	text-align: center;
+}
+.user-card  >footer.media >a{
+	display: inline-block;
+	line-height: 20px;
+	padding: 8px 8px;
+	border-radius: 50%; /*做个圆圈。。。*/
+	margin: 32px;
+}
+.user-card > footer{
+	margin: 0px;
+}
+.user-card  > footer.media > a:hover{
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.user-card svg{
+	width:20px;
+	height:20px;
+	fill: white;
+	vertical-align: top;/*上下高度不一致，设置一个top就一样了？？？*/
+}
+body > main{
+	margin-top: -345px;
+}
+body>main .dr-wrapper {
+	text-align: center;
+  }
+body>main .dr {
+	font-size: 14px;
+	line-height: 16px;
+	padding: 21px 55px;
+	border: 1px solid #cdcfd1;
+	background: #efefef;
+	display: inline-block;
+	border-radius: 2px;
+	color: #3d4451;
+	font-weight: bold;
+	margin: 32px 0;
+	transition: box-shadow 0.2s; /*阴影变化的时间*/
+  }
+  body>main .dr:hover {
+  	box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.5);
+  }
+.self-introduction{
+	max-width: 930px; 
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+	font-family: kai;
+	line-height: 1.8;
+	font-size: 18px;
+}
+section.skills,section.portfolio{
+	width: 930px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 60px;
+}
+.h2style{
+	color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+	text-align: center;
+}
+section.skills > h3{
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+}
+section.skills >ol{
+	background: white;
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+	padding: 44px 50px 10px;
+	margin-top: 30px;
+}
+section.skills >ol>li{
+	float: left;
+	width: 48%;
+	box-sizing: border-box;/* 把border算入上面的百分比*/
+}
+section.skills >ol>li:nth-child(even){ /*:伪类，可以选中某些标签，状态   ::伪元素比如：::before*/
+	float: right; 
+}
+section.skills .progressBar{
+	height: 5px;
+	background-color: #FAE1E1;
+	border-radius: 2px;
+	margin:4px  0px 40px;
+}
+section.skills .progress{
+	height: 100%; /*和外面的一样高*/
+	background: #e8676b;
+	width: 70%;
+}
+section.portfolio{
+	text-align: center;
+	margin-bottom: 100px;
+}
+section.portfolio >nav{
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 30px;
+}
+section.portfolio >nav>ol{
+	margin:0 auto;
+	display: inline-block;
+	vertical-align: top; /*inline-block之后会有个空隙，必须加这一句*/
+}
+section.portfolio >nav>ol>li{
+	float: left;
+	margin-left: 40px;
+	cursor: pointer;
+}
+section.portfolio >nav>ol>li:first-child{
+	margin-left: 0px;
+}
+section.portfolio >nav .bar{
+	height: 5px;
+	background:white;
+	margin-top: 5px;
+	margin-bottom: 30px;
+	border-radius: 2px;
+}
+section.portfolio >nav .bar-inner{
+	height: 100%;
+	background: #e8676b;
+	border-radius: 2px;
+	transition: all 0.3s;
+}
+section.portfolio > nav .bar.state-1 .bar-inner{
+	margin-left: 0;
+	width: 50px;
+  }
+  section.portfolio > nav .bar.state-2 .bar-inner{
+	margin-left: 65px;
+	width: 50px;
+  }
+  section.portfolio > nav .bar.state-3 .bar-inner{
+	margin-left: 140px;
+	width: 107px;
+  }
+section.portfolio .works{
+	position: relative;
+}
+section.portfolio .works >div{
+	position: absolute;
 }
