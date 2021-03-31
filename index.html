@@ -3,7 +3,8 @@
 
 <head>
 	<title>我的网页</title>
-	<link rel="stylesheet" href="./a.css">
+	<link rel="stylesheet" href="./main.css">
+	<link rel="stylesheet" href="./loading.css">
 	<script src="//at.alicdn.com/t/font_2440788_gfi7d2g5tqs.js"></script>
 	<style type="text/css">
 		.icon {
@@ -13,10 +14,29 @@
 			fill: currentColor;
 			overflow: hidden;
 		}
+
+		.site-welcome {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background:rgb(239,239,239);
+			z-index: 1;
+			justify-content: center;
+			align-items: center;
+		}
+		.site-welcome.active {
+			display: flex;
+		}
 	</style>
 </head>
 
 <body>
+	<div id="siteWelcome" class="site-welcome active">
+		<div class=loading></div>
+	</div>
 	<div class="top-nav-bar ">
 		<div class="top-nav-bar-inner clearfix">
 			<a class="logo" href="#" alt="logo" style="float: left;">
@@ -164,7 +184,7 @@
 				portfolioBar.className = 'bar state-3'
 			}
 		</script>
-		
+
 		<div class="works" style="height: 597px;">
 			<div class="big" style="top: 0; left:0;">
 				<img src="img/1.jpg" alt="work1">
@@ -178,6 +198,10 @@
 		</div>
 
 	</section>
+	<script>
+		setTimeout(function(){
+			siteWelcome.classList.remove('active')
+		},1000)		//加载太快看不到，加一个延时才能看加载页面
+	</script>
 </body>
-
 </html>

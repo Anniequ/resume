@@ -67,18 +67,3 @@ section.portfolio > nav .bar.state-2 .bar-inner{ margin-left: 65px; width: 50px;
 section.portfolio > nav .bar.state-3 .bar-inner{ margin-left: 140px; width: 107px; }
 section.portfolio .works{ position: relative; }
 section.portfolio .works >div{ position: absolute; } 
-.loading{ width: 200px; height: 200px; border: 1px solid red; position: relative; }
-.loading::before, .loading::after{ content: ''; position: absolute; width: 0px; height: 0px; background: black; border-radius: 50%; top: 0; right: 0; bottom: 0; left: 0; margin: auto; animation: s 1.5s linear infinite; }
-.loading::after{ animation-delay: 0.75s; }
-@keyframes s{
-	0%{
-		width: 0px;
-		height: 0px;
-		opacity: 1;
-	}
-	100%{
-		width: 100px;
-		height: 100px;
-		opacity: 0;
-	}
-}
