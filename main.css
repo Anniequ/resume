@@ -7,8 +7,8 @@ h1,h2,h3,h4,h5,h6,h7{ font-weight: normal; }
 .clearfix::after{ content:''; display:block; clear:both; }
 
 
-.top-nav-bar{ padding: 20px 16px; position: fixed; /*脱离文档流，不在影响父元素的行高*/ top: 0; left: 0; width: 100%; transition: all 0.5s;color: #B7B7B7}
-.top-nav-bar.sticky{background: rgb(239,239,239);padding: 10px 0;z-index: 1px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);color: #3d4451;} /*z-index没有器作用*/
+.top-nav-bar{padding: 20px 16px;position: fixed; /*脱离文档流，不在影响父元素的行高*/ top: 0; left: 0; width: 100%; transition: all 0.5s;color: #B7B7B7}
+.top-nav-bar.sticky{background: rgb(239,239,239);padding: 10px 0;z-index: 1;box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);color: #3d4451;} /*z-index没有起作用*/
 .top-nav-bar-inner{ padding: 0 192px; }
 .top-nav-bar nav{ padding-bottom: 3px; padding-top: 7px; }
 .top-nav-bar nav>ul{ list-style:none; margin:0;padding:0; }
@@ -32,6 +32,17 @@ h1,h2,h3,h4,h5,h6,h7{ font-weight: normal; }
     }100%{
         margin-right:0%;
     }
+}
+.top-nav-bar nav>ul>li.highlight >a::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #E6686A;
+    height: 3px;
+    animation: menuSlide .5s;
 }
 .top-nav-bar .subMenu > li{
     white-space: nowrap;  /*不许换行*/ 
@@ -57,6 +68,15 @@ h1,h2,h3,h4,h5,h6,h7{ font-weight: normal; }
         width: 100%;
      }
  }
+ 
+ [data-x].offset{
+     transform: translateY(100px);
+ }
+ [data-x]{
+     transform: translateY(0);
+     transition: all .5s;
+ }
+
 .top-nav-bar .logo{ font-size:24px; font-family:"Arial Black"; padding-top: 4px; padding-bottom: 3px; }
 .top-nav-bar .logo .rs{ margin-right:2px; color: #E6686A; }
 .top-nav-bar .logo .card{ color: #9A9DA2; }
@@ -94,9 +114,11 @@ section.skills > h3{ font-size: 14px; line-height: 1.1; padding-right: 40px; }
 section.skills >ol{ background: white; box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5); padding: 44px 50px 10px; margin-top: 30px; }
 section.skills >ol>li{ float: left; width: 48%; box-sizing: border-box;/* 把border算入上面的百分比*/ }
 section.skills >ol>li:nth-child(even){ /*:伪类，可以选中某些标签，状态   ::伪元素比如：::before*/ float: right; }
-section.skills .progressBar{ height: 5px; background-color: #FAE1E1; border-radius: 2px; margin:4px  0px 40px; }
-section.skills .progress{ height: 100%; /*和外面的一样高*/ background: #e8676b; width: 70%; }
-
+section.skills .progressBar{ height: 5px; background-color: #FAE1E1; border-radius: 2px; margin:4px  0px 40px; overflow: hidden;}
+section.skills .progress{ height: 100%; /*和外面的一样高*/ background: #e8676b; width: 70%; transform: translateX(0);transition: all 1s;}
+section.skills.offset .progress{
+    transform: translateX(-100%);
+}
 
 section.portfolio{ text-align: center; margin-bottom: 100px; }
 section.portfolio >nav{ text-align: center; display: inline-block; vertical-align: top; margin-top: 30px; }
