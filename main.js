@@ -3,24 +3,25 @@ setTimeout(function () {
 }, 100)		//loading,加载太快看不到，加一个延时才能看加载页面
 
 
-let specialTags = document.querySelectorAll("[data-x]")
-for (let i = 0; i < specialTags.length; i++) {
-    specialTags[i].classList.add("offset")
-}
 
-findClosest(window.scrollY)   //前面的loading时间会影响，loading太长看不到
-window.onscroll = function () {
-    let scY = window.scrollY
-    if (scY > 0) {
-        topNavBar.classList.add("sticky")
-    } else {
-        topNavBar.classList.remove("sticky")
-    }
-    findClosest(scY)
-}
-function findClosest(scY){
-    /*************************/
+
+/**********************************************************************
+ * 动画，滚到对应的部分浮出
+ */
+
+//前面的loading时间会影响，loading太长看不到
+ let specialTags = document.querySelectorAll("[data-x]")
+ for (let i = 0; i < specialTags.length; i++) {
+     specialTags[i].classList.add("offset")
+ }
+findClosestAndRemoveOffset()  
+
+window.addEventListener('scroll', function(x){
+    findClosestAndRemoveOffset()
+})
+function findClosestAndRemoveOffset(){
     //获取当前滚到那里了高亮标题
+    let scY = window.scrollY
     let specialTags = document.querySelectorAll("[data-x]")
     let minIndex = 0
     for (let i = 1; i < specialTags.length; i++) {
@@ -41,6 +42,24 @@ function findClosest(scY){
 }
 
 
+  
+/**********************************************************************
+ * top nav bar sticky
+ */
+window.addEventListener('scroll',function () {
+    let scY = window.scrollY
+    if (scY > 0) {
+        topNavBar.classList.add("sticky")
+    } else {
+        topNavBar.classList.remove("sticky")
+    }
+    
+})
+
+
+/**********************************************************************
+ * 子菜单弹出
+ */
 let liTags = document.querySelectorAll("nav.menu > ul > li")
 //console.log(aTags)
 for (let i = 0; i < liTags.length; i++) {
@@ -58,6 +77,11 @@ for (let i = 0; i < liTags.length; i++) {
     }
 }
 
+
+
+/**********************************************************************
+ * 自动导航
+ */
 let aTags = document.querySelectorAll("nav.menu > ul > li > a")
 for (let i = 0; i < aTags.length; i++) {
     aTags[i].onclick = function (x) {
@@ -86,6 +110,9 @@ for (let i = 0; i < aTags.length; i++) {
 }
 
 
+/**********************************************************************
+ * 给轮播上面的选中条加点击移动指向
+ */
 portfolio1.onclick = function () {
     portfolioBar.className = "bar state-1"
 }
@@ -95,24 +122,23 @@ portfolio2.onclick = function () {
 portfolio3.onclick = function () {
     portfolioBar.className = "bar state-3"
 }
-		
-//轮播
+
+
+
+/**********************************************************************
+ * 轮播初始化
+*/
 const swiper = new Swiper('.swiper-container', {
-// Optional parameters
-
 loop: true,
-
 // If we need pagination
 pagination: {
 el: '.swiper-pagination',
 },
-
 // Navigation arrows
 navigation: {
 nextEl: '.swiper-button-next',
 prevEl: '.swiper-button-prev',
 },
-
 //   // And if we need scrollbar
 //   scrollbar: {
 //     el: '.swiper-scrollbar',

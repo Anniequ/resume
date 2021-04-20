@@ -99,3 +99,4 @@ section.portfolio .works >div{ position: absolute; }
 section.portfolio .swiper-container { width: 800px; height: 600px; } .swiper-slide{ background: white; }
 section.portfolio .swiper-button-prev{ background-color: white; width: 64px; height: 64px; right: 100%; left: auto; border-radius: 50%; }
 section.portfolio .swiper-button-next{ background-color: white; width: 64px; height: 64px; left: 100%; right: auto; border-radius: 50%; }
+.icon { width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor; overflow: hidden; }
