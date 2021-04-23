@@ -2,7 +2,7 @@
  * 轮播初始化
 */
 !function () {
-    var view = document.querySelector('#mySides')
+    var view = View('#mySides')
     var controller = {
         view:null,
         swiper:null,

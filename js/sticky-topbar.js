@@ -2,7 +2,7 @@
  * top nav bar sticky
  */
 !function () {
-    var view = document.querySelector('#topNavBar')
+    var view = View('#topNavBar')
     var controller = {
         view: null,
         init: function (view) {
